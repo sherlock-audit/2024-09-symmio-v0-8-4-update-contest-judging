@@ -2,6 +2,8 @@
 
 Source: https://github.com/sherlock-audit/2024-09-symmio-v0-8-4-update-contest-judging/issues/39 
 
+The protocol has acknowledged this issue.
+
 ## Found by 
 xiaoming90
 ### Summary
@@ -92,8 +94,6 @@ _No response_
 
 Source: https://github.com/sherlock-audit/2024-09-symmio-v0-8-4-update-contest-judging/issues/40 
 
-The protocol has acknowledged this issue.
-
 ## Found by 
 xiaoming90
 ### Summary
@@ -173,6 +173,12 @@ Include the `notPartyB` modifier to the `settleUpnl` function.
 **MoonKnightDev**
 
 the check in the libSettlement.sol file prevents the scenario mentioned: https://github.com/SYMM-IO/protocol-core/blob/eac73bf1d97df96bcd5b19bcc972792ef96c70e1/contracts/libraries/LibSettlement.sol#L30
+
+**sherlock-admin2**
+
+The protocol team fixed this issue in the following PRs/commits:
+https://github.com/SYMM-IO/protocol-core/pull/57
+
 
 # Issue M-3: Force Close can be DOSed by exploiting `settleUpnl` function 
 
@@ -289,6 +295,16 @@ Consider implementing the following measures to mitigate the root causes:
 1. Ensure that `SettlementSig` signature with `quotesSettlementsData` and/or `partyBs` array being empty are rejected within `settleUpnl` function
 2. Implement some cooldown even if PartyB is settling its own positions
 3. Implement a minimum PnL to be settled so that no one can attempt to abuse the settle upnl feature by only settling 1 wei or small amount of PnL
+
+
+
+## Discussion
+
+**sherlock-admin2**
+
+The protocol team fixed this issue in the following PRs/commits:
+https://github.com/SYMM-IO/protocol-core/pull/58
+
 
 # Issue M-4: Emergency close might be blocked due to insufficient allocated balance 
 
